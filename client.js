@@ -9,7 +9,8 @@ const connect = function() {
   conn.setEncoding('utf8'); 
   conn.on('connect', () => {
     console.log(`You've got a connection`);
-    conn.write(`Name: DJP` );
+    conn.write(`Name: DJP`);
+    // setInterval(() => conn.write(`Move: up`), 50);
   });
   conn.on('data', data => console.log(data));
   
