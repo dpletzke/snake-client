@@ -8,7 +8,6 @@ const handleUserInput = (data) => {
   }
   let direction = '';
   const directionStr = 'wasd';
-  const messageStr = '123';
   if(directionStr.includes(data)) {
     clearInterval(moveDirection);
     switch (data) {
@@ -20,6 +19,7 @@ const handleUserInput = (data) => {
     }
     moveDirection = setInterval(() => connection.write(`Move: ${direction}`), 50);
   }
+  const messageStr = '123';
   if(messageStr.includes(data)) {
     switch(data) {
       case '1' : connection.write(`Say: I'm a snake!`); break;
