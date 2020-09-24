@@ -7,8 +7,8 @@ const handleUserInput = (data) => {
     process.exit();
   }
   let direction = '';
-  
   const directionStr = 'wasd';
+  const messageStr = '123';
   if(directionStr.includes(data)) {
     clearInterval(moveDirection);
     switch (data) {
@@ -16,10 +16,16 @@ const handleUserInput = (data) => {
       case 'a': direction = 'left'; break;
       case 's': direction = 'down'; break;
       case 'd': direction = 'right'; break;        
-      default:
-        break;
+      default: break;
     }
     moveDirection = setInterval(() => connection.write(`Move: ${direction}`), 50);
+  }
+  if(messageStr.includes(data)) {
+    switch(data) {
+      case '1' : connection.write(`Say: I'm a snake!`); break;
+      case '2' : connection.write(`Say: Get out of my way!`); break;
+      case '3' : connection.write(`Say: whats up snake?`); break;
+    }
   }
 }
 
